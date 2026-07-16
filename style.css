@@ -24,7 +24,7 @@ html{
 
 body{
 
-    background:#fcfcfc;
+    background:oklab(100% 0 -0.00011);
 
     color:var(--text);
 
