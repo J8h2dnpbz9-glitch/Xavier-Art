@@ -1,5 +1,20 @@
 const header = document.querySelector("header");
 
+// Añade aquí un identificador de Google Analytics (G-XXXXXXXXXX) para activar
+// medición en todo el sitio. Se deja vacío hasta que el titular cree su cuenta.
+const analyticsMeasurementId = "";
+
+if (analyticsMeasurementId) {
+    const analyticsScript = document.createElement("script");
+    analyticsScript.async = true;
+    analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsMeasurementId}`;
+    document.head.append(analyticsScript);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", analyticsMeasurementId, { anonymize_ip: true });
+}
+
 if (header) {
     window.addEventListener("scroll", () => {
         const scroll = window.scrollY;
@@ -82,16 +97,19 @@ if (searchButton && searchOverlay && searchInput) {
     });
 }
 
-const contactForm = document.getElementById("contact-form");
+document.querySelectorAll("footer").forEach((footer) => {
+    const utilities = document.createElement("div");
+    utilities.className = "footer-links";
+    utilities.innerHTML = '<a href="https://instagram.com/xavier__art" target="_blank" rel="noopener noreferrer">Instagram</a><a href="privacidad.html">Privacidad</a><a href="aviso-legal.html">Aviso legal</a>';
+    footer.append(utilities);
+});
 
-if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const form = new FormData(contactForm);
-        const name = form.get("name").trim();
-        const email = form.get("email").trim();
-        const message = form.get("message").trim();
-        const body = `Hola Xavier,\n\n${message}\n\nNombre: ${name}\nCorreo: ${email}`;
-        window.location.href = `mailto:xavierart2024@icloud.com?subject=${encodeURIComponent("Consulta desde xavierartspace.com")}&body=${encodeURIComponent(body)}`;
-    });
-}
+document.querySelectorAll("nav").forEach((nav) => {
+    const languageLink = document.createElement("a");
+    const englishPage = location.pathname.endsWith("/en.html");
+    languageLink.href = englishPage ? "index.html" : "en.html";
+    languageLink.className = "language-toggle";
+    languageLink.textContent = englishPage ? "ES" : "EN";
+    languageLink.setAttribute("aria-label", englishPage ? "Cambiar a español" : "Switch to English");
+    nav.append(languageLink);
+});

@@ -293,7 +293,8 @@ main{
 }
 
 .contact-form input,
-.contact-form textarea{
+.contact-form textarea,
+.contact-form select{
 
     width:100%;
     padding:12px 0;
@@ -307,7 +308,8 @@ main{
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus{
+.contact-form textarea:focus,
+.contact-form select:focus{
 
     outline:0;
     border-color:#111;
@@ -327,6 +329,110 @@ main{
 
     color:#777;
     font-size:13px;
+
+}
+
+.consent{
+
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+    margin-top:8px;
+    font-size:13px !important;
+    line-height:1.5;
+
+}
+
+.consent input{
+
+    width:auto;
+    margin-top:3px;
+
+}
+
+.consent a,
+.newsletter a{
+
+    color:#111;
+
+}
+
+.newsletter{
+
+    margin-top:120px;
+    padding:46px;
+    border:1px solid var(--line);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px 60px;
+    align-items:end;
+
+}
+
+.newsletter h2{
+
+    font-size:32px;
+    font-weight:400;
+    margin-bottom:10px;
+
+}
+
+.newsletter p{
+
+    color:#555;
+
+}
+
+.eyebrow{
+
+    font-size:12px;
+    letter-spacing:.12em;
+    margin-bottom:14px;
+
+}
+
+.newsletter-form{
+
+    display:flex;
+    align-items:center;
+    border-bottom:1px solid #111;
+
+}
+
+.newsletter-form input{
+
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:13px 0;
+    color:#111;
+    font:inherit;
+    outline:0;
+
+}
+
+.newsletter-form button{
+
+    border:0;
+    background:transparent;
+    color:#111;
+    padding:13px 0 13px 20px;
+    font:inherit;
+    cursor:pointer;
+
+}
+
+.newsletter-note{
+
+    grid-column:1 / -1;
+    font-size:12px;
+
+}
+
+.language-toggle{
+
+    font-size:12px;
+    font-weight:500;
 
 }
 
@@ -519,6 +625,45 @@ footer span{
     margin:140px auto;
 
     font-family:'IBM Plex Mono', monospace;
+
+}
+
+.legal-page,
+.simple-page{
+
+    max-width:760px;
+    margin:120px auto;
+
+}
+
+.legal-page h2,
+.simple-page h2{
+
+    font-size:48px;
+    font-weight:400;
+    margin-bottom:32px;
+
+}
+
+.legal-page h3{
+
+    font-size:18px;
+    font-weight:500;
+    margin:36px 0 10px;
+
+}
+
+.legal-page p,
+.simple-page p{
+
+    color:#444;
+    margin-bottom:18px;
+
+}
+
+.legal-page a{
+
+    color:#111;
 
 }
 
@@ -1031,6 +1176,29 @@ main{
     margin-top:24px;
 
 }
+
+    .newsletter{
+
+        margin-top:80px;
+        padding:30px 24px;
+        grid-template-columns:1fr;
+
+    }
+
+    .newsletter h2,
+    .legal-page h2,
+    .simple-page h2{
+
+        font-size:34px;
+
+    }
+
+    .legal-page,
+    .simple-page{
+
+        margin:70px auto;
+
+    }
 
 }
 

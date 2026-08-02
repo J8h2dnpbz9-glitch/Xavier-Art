@@ -75,7 +75,11 @@ Enviar correo
 
 </a>
 
-<form id="contact-form" class="contact-form">
+<form id="contact-form" class="contact-form" action="https://formsubmit.co/xavierart2024@icloud.com" method="POST">
+
+<input type="hidden" name="_subject" value="Nueva consulta desde xavierartspace.com">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://xavierartspace.com/gracias.html">
 
 <label for="contact-name">Nombre</label>
 <input id="contact-name" name="name" type="text" autocomplete="name" required>
@@ -83,12 +87,23 @@ Enviar correo
 <label for="contact-email">Correo electrónico</label>
 <input id="contact-email" name="email" type="email" autocomplete="email" required>
 
+<label for="contact-reason">Motivo de consulta</label>
+<select id="contact-reason" name="motivo" required>
+<option value="">Selecciona una opción</option>
+<option>Información sobre obra</option>
+<option>Encargo</option>
+<option>Exposición o colaboración</option>
+<option>Otro</option>
+</select>
+
 <label for="contact-message">Mensaje</label>
 <textarea id="contact-message" name="message" rows="5" required placeholder="Cuéntame en qué puedo ayudarte."></textarea>
 
+<label class="consent"><input type="checkbox" name="privacy" required> He leído y acepto la <a href="privacidad.html">política de privacidad</a>.</label>
+
 <button type="submit" class="enquire-button">Preparar consulta</button>
 
-<p class="form-note">Se abrirá tu aplicación de correo con el mensaje preparado.</p>
+<p class="form-note">Tus datos se usan únicamente para responder a tu consulta.</p>
 
 </form>
 
