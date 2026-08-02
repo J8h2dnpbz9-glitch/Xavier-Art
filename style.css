@@ -151,6 +151,7 @@ footer p { margin: 0; }
   header.is-scrolled { min-height: auto; }
   nav { gap: 14px 18px; padding-top: 5px; }
   nav a, .search-icon { font-size: .65rem; }
+  nav .search-icon { font-size: 1.3rem; }
   main { padding-top: 32px; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-copy { gap: 58px; padding: 38px 0 48px; }
