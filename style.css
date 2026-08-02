@@ -24,7 +24,8 @@ html{
 
 body{
 
-    background:var(--bg);
+    /* Prueba temporal de despliegue. Restaurar a: var(--bg) */
+    background:#e53935;
 
 
     color:var(--text);
