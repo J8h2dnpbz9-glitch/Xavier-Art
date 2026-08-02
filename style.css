@@ -147,6 +147,7 @@ footer p { margin: 0; }
 @media (max-width: 850px) {
   .container { width: min(calc(100% - 40px), var(--max)); }
   header { min-height: auto; padding: 22px 0; align-items: flex-start; }
+  .home-classic header, .en-home header { width: 100vw; margin-left: calc(50% - 50vw); padding-right: calc(50vw - 50%); padding-left: calc(50vw - 50%); }
   header.is-scrolled { min-height: auto; }
   nav { gap: 14px 18px; padding-top: 5px; }
   nav a, .search-icon { font-size: .65rem; }
