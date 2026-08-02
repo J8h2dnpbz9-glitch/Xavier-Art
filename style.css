@@ -3,7 +3,7 @@
    ========================================================== */
 
 :root{
-    --bg:#f8f7f3;
+    --bg:#fff;
     --text:#111;
     --muted:#6f6f6f;
     --line:#e7e7e7;
@@ -24,7 +24,7 @@ html{
 
 body{
 
-    background:var(--bg);
+    background:#fff;
 
 
     color:var(--text);
@@ -34,6 +34,13 @@ body{
     line-height:1.6;
 
     padding:50px;
+
+}
+
+a,
+a:visited{
+
+    color:var(--text);
 
 }
 
@@ -359,7 +366,7 @@ main{
 
 .newsletter{
 
-    margin-top:120px;
+    margin-top:200px;
     padding:46px;
     border:1px solid var(--line);
     display:grid;
@@ -1179,7 +1186,7 @@ main{
 
     .newsletter{
 
-        margin-top:80px;
+        margin-top:120px;
         padding:30px 24px;
         grid-template-columns:1fr;
 
