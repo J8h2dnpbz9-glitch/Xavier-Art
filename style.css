@@ -69,6 +69,7 @@ main { padding: 56px 0 0; }
 .home-classic .intro { max-width: none; margin: 0 0 100px; }
 .home-classic .intro-text h2 { margin-bottom: 12px; font-size: clamp(2rem, 3.2vw, 3rem); letter-spacing: -.05em; }
 .home-classic .intro-text p { max-width: 72ch; font-size: 1rem; }
+.home-classic .intro-text p + p { margin-top: 16px; }
 .home-classic .intro-link { font-size: .75rem; }
 .home-classic .gallery img { aspect-ratio: 1 / 1; }
 .home-classic .newsletter { margin-top: 140px; }
