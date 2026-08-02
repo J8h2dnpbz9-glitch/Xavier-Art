@@ -35,6 +35,8 @@ nav a:hover::after, nav a.active::after { transform: scaleX(1); transform-origin
 
 main { padding: 56px 0 0; }
 .hero { display: grid; grid-template-columns: minmax(0, .76fr) minmax(0, 1.24fr); min-height: min(700px, calc(100vh - 160px)); border-top: 1px solid var(--line); }
+.hero-banner { overflow: hidden; border-top: 1px solid var(--line); }
+.hero-banner img { aspect-ratio: 21 / 8; object-fit: cover; }
 .hero-copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(32px, 5vw, 80px) clamp(30px, 4.6vw, 72px) clamp(34px, 5vw, 70px) 0; }
 .eyebrow { margin: 0 0 18px; color: var(--muted); font-size: .68rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; }
 .hero h1, .hero h2, .intro h2, .about-text h2, .legal-page h2, .simple-page h2 { max-width: 11ch; margin: 0; font-size: clamp(3rem, 6.3vw, 6.7rem); font-weight: 400; letter-spacing: -.075em; line-height: .91; }
@@ -52,7 +54,7 @@ main { padding: 56px 0 0; }
 .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .editorial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 9vw, 160px); align-items: start; padding: clamp(100px, 15vw, 210px) 0; }
-.editorial-grid h2 { max-width: 10ch; margin: 0; font-size: clamp(2.8rem, 5.6vw, 5.8rem); font-weight: 400; letter-spacing: -.075em; line-height: .92; }
+.editorial-grid h1, .editorial-grid h2 { max-width: 10ch; margin: 0; font-size: clamp(2.8rem, 5.6vw, 5.8rem); font-weight: 400; letter-spacing: -.075em; line-height: .92; }
 .editorial-grid p { max-width: 39ch; margin: 0; color: var(--muted); font-size: clamp(1.1rem, 1.8vw, 1.45rem); line-height: 1.48; }
 .editorial-grid .intro-link { display: inline-block; margin-top: 26px; font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
 .archive-header { margin: 0 0 100px; overflow: hidden; background: var(--soft); }
@@ -140,6 +142,7 @@ footer p { margin: 0; }
   .hero-copy { gap: 58px; padding: 38px 0 48px; }
   .hero h2 { max-width: 12ch; }
   .hero-image img { min-height: 0; aspect-ratio: 4 / 5; }
+  .hero-banner img { aspect-ratio: 21 / 10; }
   .editorial-grid, .newsletter, .about-page, .work-page { grid-template-columns: 1fr; }
   .editorial-grid { gap: 28px; padding: 105px 0; }
   .gallery { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 42px 14px; }
