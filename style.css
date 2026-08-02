@@ -59,6 +59,14 @@ main { padding: 56px 0 0; }
 .editorial-grid .intro-link { display: inline-block; margin-top: 26px; font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
 .archive-header { margin: 0 0 100px; overflow: hidden; background: var(--soft); }
 .archive-header img { aspect-ratio: 21 / 8; object-fit: cover; }
+.home-classic main { padding-top: 90px; }
+.home-classic .archive-header { margin-bottom: 80px; }
+.home-classic .intro { max-width: none; margin: 0 0 100px; }
+.home-classic .intro-text h2 { margin-bottom: 12px; font-size: clamp(2rem, 3.2vw, 3rem); letter-spacing: -.05em; }
+.home-classic .intro-text p { max-width: 72ch; font-size: 1rem; }
+.home-classic .intro-link { font-size: .75rem; }
+.home-classic .gallery img { aspect-ratio: 1 / 1; }
+.home-classic .newsletter { margin-top: 140px; }
 .intro { max-width: 760px; margin: 0 auto 90px; }
 .intro-text h2 { margin-bottom: 28px; font-size: clamp(2.6rem, 5vw, 5.4rem); }
 .intro-text p { max-width: 60ch; color: var(--muted); }
@@ -143,6 +151,9 @@ footer p { margin: 0; }
   .hero h2 { max-width: 12ch; }
   .hero-image img { min-height: 0; aspect-ratio: 4 / 5; }
   .hero-banner img { aspect-ratio: 21 / 10; }
+  .home-classic main { padding-top: 60px; }
+  .home-classic .archive-header { margin-bottom: 48px; }
+  .home-classic .intro { margin-bottom: 70px; }
   .editorial-grid, .newsletter, .about-page, .work-page { grid-template-columns: 1fr; }
   .editorial-grid { gap: 28px; padding: 105px 0; }
   .gallery { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 42px 14px; }
