@@ -22,8 +22,10 @@ button { color: inherit; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 .container { width: min(calc(100% - 80px), var(--max)); margin: 0 auto; }
 
-header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 104px; background: rgba(255,255,255,.94); border-bottom: 1px solid transparent; backdrop-filter: blur(14px); transition: min-height .35s var(--ease), border-color .35s var(--ease), background .35s var(--ease); }
+header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 104px; isolation: isolate; background: transparent; border-bottom: 1px solid transparent; transition: min-height .35s var(--ease), border-color .35s var(--ease); }
+header::before { position: absolute; z-index: -1; top: 0; right: calc(50% - 50vw); bottom: 0; left: calc(50% - 50vw); border-bottom: 1px solid transparent; background: rgba(255,255,255,.94); content: ""; backdrop-filter: blur(14px); transition: border-color .35s var(--ease); }
 header.is-scrolled { min-height: 72px; border-color: var(--line); }
+header.is-scrolled::before { border-color: var(--line); }
 h1, .site-brand { margin: 0; line-height: 1; }
 .logo { display: inline-block; color: var(--ink); font-size: clamp(1.45rem, 2.6vw, 2.2rem); font-weight: 400; letter-spacing: -.075em; text-decoration: none; white-space: nowrap; }
 nav { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: clamp(16px, 2.2vw, 34px); }
@@ -61,7 +63,7 @@ main { padding: 56px 0 0; }
 .archive-header img { aspect-ratio: 21 / 8; object-fit: cover; }
 .home-classic main { padding-top: 90px; }
 .home-classic .archive-header { width: 100vw; height: clamp(210px, 25vw, 360px); margin-bottom: 80px; margin-left: calc(50% - 50vw); }
-.home-classic .archive-header img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center; }
+.home-classic .archive-header img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center 62%; }
 .home-classic .intro { max-width: none; margin: 0 0 100px; }
 .home-classic .intro-text h2 { margin-bottom: 12px; font-size: clamp(2rem, 3.2vw, 3rem); letter-spacing: -.05em; }
 .home-classic .intro-text p { max-width: 72ch; font-size: 1rem; }
