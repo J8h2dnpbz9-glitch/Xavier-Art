@@ -26,6 +26,7 @@ body{
 
     background:oklab(100% 0 -0.00011);
 
+
     color:var(--text);
 
     font-family:Helvetica, Arial, sans-serif;
@@ -179,6 +180,28 @@ main{
     opacity:.9;
 }
 
+.coming-soon{
+
+    position:relative;
+    opacity:.72;
+
+}
+
+.coming-soon::after{
+
+    content:"En preparación";
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    padding:5px 8px;
+    background:rgba(255,255,255,.9);
+    color:#111;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+
+}
+
 .work-card h3{
     margin-top:18px;
     font-size:20px;
@@ -250,6 +273,59 @@ main{
 .enquire-button:hover{
     background:#111;
     color:#fff;
+}
+
+.contact-form{
+
+    display:grid;
+    gap:10px;
+    margin-top:38px;
+
+}
+
+.contact-form label{
+
+    font-size:14px;
+    color:#444;
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+    width:100%;
+    padding:12px 0;
+    border:0;
+    border-bottom:1px solid #bbb;
+    background:transparent;
+    color:#111;
+    font:inherit;
+    resize:vertical;
+
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+    outline:0;
+    border-color:#111;
+
+}
+
+.contact-form .enquire-button{
+
+    justify-self:start;
+    margin-top:14px;
+    cursor:pointer;
+    background:#fff;
+
+}
+
+.form-note{
+
+    color:#777;
+    font-size:13px;
+
 }
 
 .work-navigation{
@@ -394,6 +470,42 @@ footer span{
 
 }
 
+@media (max-width:768px){
+
+    .search-result{
+
+        align-items:flex-start;
+        flex-direction:column;
+        gap:4px;
+
+    }
+
+    .search-result span{
+
+        text-align:left;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .search-result{
+
+        align-items:flex-start;
+        flex-direction:column;
+        gap:4px;
+
+    }
+
+    .search-result span{
+
+        text-align:left;
+
+    }
+
+}
+
 /* ==========================================
    ARCHIVE
 ========================================== */
@@ -531,6 +643,14 @@ BUY BUTTON
     background:#fff;
 
     color:#111;
+
+}
+
+.checkout-text{
+
+    margin-top:12px;
+    font-size:13px;
+    color:#777;
 
 }
 
@@ -736,6 +856,53 @@ SEARCH
 #search-input::placeholder{
 
     color:#aaa;
+
+}
+
+.search-results{
+
+    width:min(700px,80vw);
+    margin-top:22px;
+
+}
+
+.search-hint{
+
+    color:#777;
+    font-size:14px;
+    text-align:center;
+
+}
+
+.search-result{
+
+    display:flex;
+    justify-content:space-between;
+    gap:24px;
+    padding:15px 0;
+    border-bottom:1px solid #e4e4e4;
+    color:#111;
+    text-decoration:none;
+
+}
+
+.search-result strong{
+
+    font-weight:500;
+
+}
+
+.search-result span{
+
+    color:#777;
+    font-size:14px;
+    text-align:right;
+
+}
+
+.search-result:hover strong{
+
+    opacity:.6;
 
 }
 
@@ -945,4 +1112,20 @@ main{
 
 }
 
+@media (max-width:768px){
 
+    .search-result{
+
+        align-items:flex-start;
+        flex-direction:column;
+        gap:4px;
+
+    }
+
+    .search-result span{
+
+        text-align:left;
+
+    }
+
+}
