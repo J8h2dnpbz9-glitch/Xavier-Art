@@ -795,6 +795,10 @@ SEARCH
 
     line-height:1;
 
+    position:relative;
+
+    top:-2px;
+
     font-size:22px;
 
     text-decoration:none;
