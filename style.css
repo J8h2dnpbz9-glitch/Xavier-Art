@@ -24,8 +24,7 @@ html{
 
 body{
 
-    /* Prueba temporal de despliegue. Restaurar a: var(--bg) */
-    background:#e53935;
+    background:var(--bg);
 
 
     color:var(--text);
@@ -798,7 +797,7 @@ SEARCH
 
     position:relative;
 
-    top:-4px;
+    top:-2px;
 
     font-size:22px;
 
