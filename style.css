@@ -98,7 +98,7 @@ main { padding: 56px 0 0; }
 .about-page, .work-page { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(300px, .7fr); gap: clamp(40px, 7vw, 120px); align-items: start; }
 .about-text h2 { margin-bottom: 34px; }
 .about-text p { max-width: 60ch; margin: 0 0 22px; color: var(--muted); font-size: 1.05rem; }
-.about-inline-image { max-width: 520px; margin: 48px 0 28px; }
+.about-inline-image { max-width: 520px; margin: 72px 0 28px; }
 .about-inline-image img { aspect-ratio: 944 / 1132; object-fit: cover; }
 .about-image img { aspect-ratio: 4 / 5; object-fit: cover; }
 .work-image { background: var(--soft); }
