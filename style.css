@@ -177,6 +177,7 @@ footer p { margin: 0; }
 @media (max-width: 480px) {
   .container { width: min(calc(100% - 32px), var(--max)); }
   header { gap: 18px; flex-direction: column; }
+  header > h1 { align-self: center; }
   nav { justify-content: flex-start; padding-top: 0; }
   .logo { font-size: 1.8rem; }
   .gallery { grid-template-columns: 1fr; }
