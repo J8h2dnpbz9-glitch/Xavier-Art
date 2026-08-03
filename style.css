@@ -164,7 +164,7 @@ footer p { margin: 0; }
   .hero-banner img { aspect-ratio: 21 / 10; }
   .home-classic main { padding-top: 0; }
   .home-classic .archive-header, .en-home .archive-header { width: 100vw; max-width: none; height: min(120px, 24vw); margin-bottom: 48px; margin-left: calc(50% - 50vw); }
-  .home-classic .archive-header img, .en-home .archive-header img { width: 100%; height: 100%; object-fit: cover; object-position: center 78%; }
+  .home-classic .archive-header img, .en-home .archive-header img { width: 100%; height: 100%; object-fit: cover; object-position: center calc(78% + 8px); }
   .home-classic .intro { margin-bottom: 70px; }
   .editorial-grid, .newsletter, .about-page, .work-page { grid-template-columns: 1fr; }
   .editorial-grid { gap: 28px; padding: 105px 0; }
