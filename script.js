@@ -4,6 +4,110 @@ const searchButton = document.getElementById("search-toggle");
 const searchOverlay = document.getElementById("search-overlay");
 const searchInput = document.getElementById("search-input");
 const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
+const analyticsMeasurementId = "G-ERX6DQQ7FF";
+const analyticsConsentKey = "xavierAnalyticsConsent";
+let analyticsLoaded = false;
+
+const readAnalyticsConsent = () => {
+  try { return window.localStorage.getItem(analyticsConsentKey); } catch { return null; }
+};
+
+const writeAnalyticsConsent = (value) => {
+  analyticsConsent = value;
+  try { window.localStorage.setItem(analyticsConsentKey, value); } catch { /* Consent can still apply during this visit. */ }
+};
+
+let analyticsConsent = readAnalyticsConsent();
+
+const clearAnalyticsCookies = () => {
+  document.cookie.split(";").forEach((cookie) => {
+    const name = cookie.trim().split("=")[0];
+    if (name === "_ga" || name.startsWith("_ga_")) {
+      document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
+    }
+  });
+};
+
+const track = (name, parameters = {}) => {
+  if (analyticsConsent === "granted" && typeof window.gtag === "function") {
+    window.gtag("event", name, parameters);
+  }
+};
+
+const trackCurrentWork = () => {
+  const work = document.querySelector(".work-page .work-info");
+  if (!work) return;
+  const title = work.querySelector("h2")?.textContent?.trim();
+  const price = Array.from(work.querySelectorAll("p")).find((paragraph) => paragraph.querySelector("strong")?.textContent?.trim() === "Precio")?.textContent?.replace("Precio", "").trim();
+  track("view_item", { item_name: title, price, currency: "EUR" });
+};
+
+const loadAnalytics = () => {
+  if (analyticsLoaded) return;
+  analyticsLoaded = true;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
+  window.gtag("consent", "default", {
+    analytics_storage: "granted",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied"
+  });
+  window.gtag("js", new Date());
+  window.gtag("config", analyticsMeasurementId, { allow_google_signals: false });
+
+  const tag = document.createElement("script");
+  tag.id = "google-analytics-tag";
+  tag.async = true;
+  tag.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsMeasurementId}`;
+  document.head.append(tag);
+  trackCurrentWork();
+};
+
+const disableAnalytics = () => {
+  window[`ga-disable-${analyticsMeasurementId}`] = true;
+  if (typeof window.gtag === "function") {
+    window.gtag("consent", "update", { analytics_storage: "denied" });
+  }
+  clearAnalyticsCookies();
+};
+
+const createConsentBanner = () => {
+  if (document.getElementById("analytics-consent")) return;
+  const banner = document.createElement("section");
+  banner.id = "analytics-consent";
+  banner.className = "analytics-consent";
+  banner.setAttribute("role", "dialog");
+  banner.setAttribute("aria-modal", "false");
+  banner.setAttribute("aria-labelledby", "analytics-consent-title");
+  const copy = isEnglish
+    ? { title: "Analytics cookies", text: "We use Google Analytics to understand visits and improve the site. It only loads if you accept.", accept: "Accept", reject: "Reject", policy: "Privacy policy" }
+    : { title: "Cookies de analítica", text: "Usamos Google Analytics para conocer las visitas y mejorar la web. Solo se carga si lo aceptas.", accept: "Aceptar", reject: "Rechazar", policy: "Política de privacidad" };
+  banner.innerHTML = `<div><h2 id="analytics-consent-title">${copy.title}</h2><p>${copy.text} <a href="privacidad.html">${copy.policy}</a>.</p></div><div class="analytics-consent__actions"><button type="button" class="analytics-consent__reject">${copy.reject}</button><button type="button" class="analytics-consent__accept">${copy.accept}</button></div>`;
+  document.body.append(banner);
+
+  banner.querySelector(".analytics-consent__accept").addEventListener("click", () => {
+    writeAnalyticsConsent("granted");
+    window[`ga-disable-${analyticsMeasurementId}`] = false;
+    loadAnalytics();
+    banner.remove();
+  });
+  banner.querySelector(".analytics-consent__reject").addEventListener("click", () => {
+    writeAnalyticsConsent("denied");
+    disableAnalytics();
+    banner.remove();
+  });
+};
+
+const setupAnalyticsConsent = () => {
+  if (analyticsConsent === "granted") {
+    loadAnalytics();
+  } else if (analyticsConsent === "denied") {
+    disableAnalytics();
+  } else {
+    createConsentBanner();
+  }
+};
 
 const searchIndex = isEnglish ? [
   { title: "Work", detail: "Painting, drawing and sculpture", url: "shop.html", terms: "art collection paintings drawing sculpture" },
@@ -69,7 +173,8 @@ document.querySelectorAll("footer").forEach((footer) => {
   const links = [
     ["https://instagram.com/xavier__art", "Instagram"],
     ["privacidad.html", isEnglish ? "Privacy" : "Privacidad"],
-    ["aviso-legal.html", isEnglish ? "Legal notice" : "Aviso legal"]
+    ["aviso-legal.html", isEnglish ? "Legal notice" : "Aviso legal"],
+    ["#analytics-settings", isEnglish ? "Cookies" : "Cookies"]
   ];
   links.forEach(([href, label]) => {
     if (utilities.querySelector(`a[href="${href}"]`)) return;
@@ -77,6 +182,16 @@ document.querySelectorAll("footer").forEach((footer) => {
     link.href = href; link.textContent = label;
     if (href.startsWith("http")) { link.target = "_blank"; link.rel = "noopener noreferrer"; }
     utilities.append(link);
+  });
+});
+
+document.querySelectorAll('a[href="#analytics-settings"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    writeAnalyticsConsent("");
+    disableAnalytics();
+    createConsentBanner();
+    document.getElementById("analytics-consent")?.querySelector("button")?.focus();
   });
 });
 
@@ -95,3 +210,25 @@ document.querySelectorAll("main img").forEach((image, index) => {
   image.decoding = "async";
   if (index > 0) image.loading = "lazy";
 });
+
+document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+  link.addEventListener("click", () => track("generate_lead", { lead_type: link.classList.contains("buy-button") ? "artwork_enquiry" : "email_enquiry" }));
+});
+
+document.querySelectorAll("form.contact-form").forEach((form) => {
+  form.addEventListener("submit", () => track("generate_lead", { lead_type: "contact_form" }));
+});
+
+document.querySelectorAll("form.newsletter-form").forEach((form) => {
+  form.addEventListener("submit", () => track("sign_up", { method: "newsletter" }));
+});
+
+document.querySelectorAll(".language-toggle").forEach((link) => {
+  link.addEventListener("click", () => track("change_language", { destination_language: isEnglish ? "es" : "en" }));
+});
+
+document.querySelectorAll('a[href*="instagram.com"]').forEach((link) => {
+  link.addEventListener("click", () => track("click_social", { network: "instagram" }));
+});
+
+setupAnalyticsConsent();
