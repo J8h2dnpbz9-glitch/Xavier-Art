@@ -231,4 +231,27 @@ document.querySelectorAll('a[href*="instagram.com"]').forEach((link) => {
   link.addEventListener("click", () => track("click_social", { network: "instagram" }));
 });
 
+document.querySelectorAll(".work-carousel").forEach((carousel) => {
+  const trackElement = carousel.querySelector(".work-carousel__track");
+  const slides = carousel.querySelectorAll(".work-carousel__track img");
+  const previous = carousel.querySelector(".work-carousel__previous");
+  const next = carousel.querySelector(".work-carousel__next");
+  const status = carousel.querySelector(".work-carousel__status");
+  let activeSlide = 0;
+
+  const updateCarousel = () => {
+    trackElement.style.transform = `translateX(-${activeSlide * 100}%)`;
+    status.textContent = `${activeSlide + 1} / ${slides.length}`;
+  };
+
+  previous.addEventListener("click", () => {
+    activeSlide = (activeSlide - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+  next.addEventListener("click", () => {
+    activeSlide = (activeSlide + 1) % slides.length;
+    updateCarousel();
+  });
+});
+
 setupAnalyticsConsent();
