@@ -50,11 +50,31 @@
 
 <main class="work-page">
 
-    <div class="work-image work-image--untitled-iii">
+    <section class="work-image work-image--untitled-iii work-carousel" aria-label="Imágenes de Sin título III">
 
-        <img src="images/sin-titulo-iii.jpg" width="3024" height="4032" alt="Sin título III de Xavier Cáceres">
+        <div class="work-carousel__viewport">
 
-    </div>
+            <div class="work-carousel__track">
+
+                <img src="images/sin-titulo-iii-main.jpg" width="3024" height="4032" alt="Sin título III de Xavier Cáceres">
+
+                <img src="images/sin-titulo-iii.jpg" width="3024" height="4032" loading="lazy" alt="Detalle de Sin título III de Xavier Cáceres">
+
+            </div>
+
+        </div>
+
+        <div class="work-carousel__controls">
+
+            <button type="button" class="work-carousel__previous" aria-label="Imagen anterior">←</button>
+
+            <span class="work-carousel__status" aria-live="polite">1 / 2</span>
+
+            <button type="button" class="work-carousel__next" aria-label="Imagen siguiente">→</button>
+
+        </div>
+
+    </section>
 
     <div class="work-info">
 
