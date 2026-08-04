@@ -105,6 +105,8 @@ html[lang="en"] .coming-soon::after { content: "Coming soon"; }
 .work-image { background: var(--soft); }
 .work-image img { aspect-ratio: 4 / 5; object-fit: contain; }
 .work-image--tupac img { aspect-ratio: 1440 / 1389; object-fit: cover; }
+.work-image--untitled-ii { display: grid; gap: 16px; }
+.work-image--untitled-ii img { aspect-ratio: 1440 / 1133; object-fit: cover; }
 .work-info { padding-top: 4px; }
 .work-info h2 { margin: 0 0 32px; font-size: clamp(2.3rem, 4vw, 4.5rem); font-weight: 400; letter-spacing: -.07em; line-height: .95; }
 .work-info p { margin: 0 0 20px; color: var(--muted); }
