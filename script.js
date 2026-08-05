@@ -199,11 +199,16 @@ document.querySelectorAll("nav").forEach((nav) => {
   if (nav.querySelector(".language-toggle")) return;
   const languageLink = document.createElement("a");
   const englishPage = location.pathname.endsWith("/en.html");
-  languageLink.href = englishPage ? "index.html" : "en.html";
+  languageLink.href = englishPage ? "/xavier/" : "en.html";
   languageLink.className = "language-toggle";
   languageLink.textContent = englishPage ? "ES" : "EN";
   languageLink.setAttribute("aria-label", englishPage ? "Cambiar a español" : "Switch to English");
   nav.append(languageLink);
+});
+
+/* The public entry is now the lobby. Existing personal pages continue to point home to Xavier Art. */
+document.querySelectorAll('a[href="index.html"]').forEach((link) => {
+  link.href = "/xavier/";
 });
 
 document.querySelectorAll("main img").forEach((image, index) => {
