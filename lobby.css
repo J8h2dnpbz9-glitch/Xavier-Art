@@ -7,7 +7,7 @@ body { margin: 0; background: var(--lobby-dark); color: var(--lobby-ink); font-f
 .lobby-panel { position: relative; display: flex; align-items: flex-end; min-width: 0; min-height: 100svh; overflow: hidden; color: inherit; text-decoration: none; isolation: isolate; transition: filter .7s var(--lobby-ease); }
 .lobby-panel::before { position: absolute; z-index: -2; inset: 0; background-position: center; background-size: cover; content: ""; transition: transform 1s var(--lobby-ease); }
 .lobby-panel--xavier::before { background-image: url("images/archive-header.jpg"); background-position: left 58%; filter: grayscale(1) contrast(1.1); }
-.lobby-panel--community::before { background: linear-gradient(128deg, #0b0a09, #211d19 55%, #161310); }
+.lobby-panel--community::before { background-image:url("images/southland-background.jpg"); background-position:center 48%; filter:sepia(.22) saturate(.78) contrast(1.05) brightness(.72); }
 .lobby-panel--community::after { position:absolute; z-index:0; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E"); background-repeat:repeat; background-size:180px 180px; content:""; opacity:.4; pointer-events:none; }
 .lobby-panel__veil { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.79)); transition: background .5s var(--lobby-ease); }
 .lobby-panel + .lobby-panel { border-left: 1px solid var(--lobby-line); }
