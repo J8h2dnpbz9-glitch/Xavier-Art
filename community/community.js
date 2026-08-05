@@ -1,7 +1,8 @@
 import { demoPosts, communityComments } from "./data.js";
 
 const escapeHTML = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
-const getPost = (id) => demoPosts.find((post) => post.id === id) || demoPosts[0];
+const getPost = (id) => demoPosts.find((post) => post.id === id);
+const emptyState = `<div class="district-empty"><p>Este espacio espera por tu obra.</p><a class="district-link" href="publish.html">Compartir una obra →</a></div>`;
 
 const postCard = (post) => `
   <article class="post-card">
@@ -15,7 +16,7 @@ const postCard = (post) => `
 
 document.querySelectorAll("[data-community-feed]").forEach((feed) => {
   const amount = Number(feed.dataset.communityFeed) || demoPosts.length;
-  feed.innerHTML = demoPosts.slice(0, amount).map(postCard).join("");
+  feed.innerHTML = demoPosts.length ? demoPosts.slice(0, amount).map(postCard).join("") : emptyState;
 });
 
 document.addEventListener("click", (event) => {
@@ -37,6 +38,9 @@ document.addEventListener("click", (event) => {
 const detail = document.getElementById("post-detail");
 if (detail) {
   const post = getPost(new URLSearchParams(location.search).get("id"));
+  if (!post) {
+    detail.innerHTML = emptyState;
+  } else {
   detail.innerHTML = `
     <div class="post-detail__image"><img src="${post.image}" alt="${escapeHTML(post.title)}, obra compartida por ${escapeHTML(post.author)}"></div>
     <div class="post-detail__body"><p class="post-detail__category">${escapeHTML(post.category)} · ${escapeHTML(post.date)}</p><h1>${escapeHTML(post.title)}</h1><p class="post-detail__author">Por ${escapeHTML(post.author)} · ${escapeHTML(post.handle)}</p><p class="post-detail__description">${escapeHTML(post.description)}</p><div class="post-card__actions"><button class="text-button like-button" type="button" aria-pressed="false" data-likes="${post.likes}">Apoyar <span>${post.likes}</span></button><button class="text-button report-button" type="button">Denunciar publicación</button><button class="text-button" type="button" id="share-post">Copiar enlace</button></div><section class="comments" aria-labelledby="comments-title"><h2 id="comments-title">Comentarios (${post.comments})</h2><div id="comment-list"></div><form class="comment-form" id="comment-form"><label for="comment-text" class="sr-only">Escribe un comentario</label><textarea id="comment-text" maxlength="500" required placeholder="Comparte una observación respetuosa…"></textarea><p class="form-hint">Máximo 500 caracteres. Los comentarios se revisan antes de publicarse.</p><button class="district-button" type="submit">Enviar comentario</button></form></section></div>`;
@@ -45,6 +49,7 @@ if (detail) {
   communityComments.forEach(addComment);
   document.getElementById("share-post").addEventListener("click", async (event) => { try { await navigator.clipboard.writeText(location.href); event.currentTarget.textContent = "Enlace copiado"; } catch { event.currentTarget.textContent = "Copia la URL del navegador"; } });
   document.getElementById("comment-form").addEventListener("submit", (event) => { event.preventDefault(); const input = document.getElementById("comment-text"); const text = input.value.trim(); if (!text) return; addComment({ author: "Tu comentario", date: "Pendiente de revisión", text }); input.value = ""; event.currentTarget.querySelector(".form-hint").textContent = "Comentario añadido a esta vista de prueba. No se ha enviado ni almacenado."; });
+  }
 }
 
 const publishForm = document.getElementById("publish-form");

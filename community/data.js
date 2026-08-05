@@ -1,13 +1,3 @@
-export const demoPosts = [
-  { id: "noche-estudio", author: "Mara Vega", handle: "@maravega", title: "Noche de estudio", category: "Fotografía", date: "4 ago 2026", comments: 8, likes: 34, image: "/images/xavier-caceres-studio-portrait.jpg", excerpt: "Una pausa entre luz fría, pruebas y materia.", description: "Serie fotográfica sobre los intervalos silenciosos del estudio: los momentos en los que una imagen aún no ha decidido qué quiere ser." },
-  { id: "materia-azul", author: "Lino 14", handle: "@lino14", title: "Materia azul", category: "Proceso", date: "2 ago 2026", comments: 3, likes: 19, image: "/images/archive-header.jpg", excerpt: "Apuntes sobre capas, tiempo y superficie.", description: "Un registro abierto del proceso de una pieza en construcción. Cada capa permanece visible como parte de su memoria." },
-  { id: "sin-prisa", author: "Celeste Ríos", handle: "@celesterios", title: "Sin prisa", category: "Dibujo", date: "31 jul 2026", comments: 12, likes: 47, image: "/images/sin-titulo-ii-detail.jpg", excerpt: "El gesto encuentra su forma cuando deja de apresurarse.", description: "Estudio de color y cuerpo realizado durante varias semanas. La imagen reúne pequeñas decisiones, correcciones y accidentes." },
-  { id: "valle-interior", author: "Andrés Mena", handle: "@andresmena", title: "Valle interior", category: "Escultura", date: "29 jul 2026", comments: 5, likes: 26, image: "/images/sin-titulo-iii-detail-4.jpg", excerpt: "Un fragmento de materia que pide ser observado de cerca.", description: "Una investigación material sobre la erosión, la luz y los rostros que aparecen cuando miramos despacio." },
-  { id: "ritmo-y-linea", author: "Nia Soto", handle: "@niasoto", title: "Ritmo y línea", category: "Música", date: "27 jul 2026", comments: 9, likes: 38, image: "/images/sin-titulo-i.jpg", excerpt: "Una pieza sonora pensada como una secuencia de trazos.", description: "Bocetos para una composición donde el pulso, las repeticiones y los silencios construyen una imagen mental." },
-  { id: "cuaderno-07", author: "Teo Luna", handle: "@teoluna", title: "Cuaderno 07", category: "Texto", date: "24 jul 2026", comments: 2, likes: 15, image: "/images/obra.jpeg", excerpt: "Notas para recordar que mirar también es una forma de hacer.", description: "Una entrada de cuaderno sobre la atención, las referencias que nos acompañan y la necesidad de dejar espacio a lo desconocido." }
-];
-
-export const communityComments = [
-  { author: "Noa R.", date: "hace 2 días", text: "La atmósfera sostiene muy bien la imagen. Me interesa especialmente el contraste entre calma y tensión." },
-  { author: "E. Castillo", date: "hace 1 día", text: "Gracias por compartir el proceso. Es de esas piezas que invitan a volver a mirar." }
-];
+/* La comunidad comienza sin obras ni publicaciones. */
+export const demoPosts = [];
+export const communityComments = [];
