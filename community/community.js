@@ -1,5 +1,10 @@
 import { demoPosts, communityComments } from "./data.js";
 
+document.querySelectorAll(".district-brand").forEach((brand) => { brand.textContent = "SOUTHLAND"; });
+document.querySelectorAll(".district-footer p").forEach((footer) => { footer.textContent = "SOUTHLAND · Comunidad en construcción"; });
+document.querySelectorAll(".district-nav").forEach((nav) => { nav.setAttribute("aria-label", "Navegación de SOUTHLAND"); });
+if (document.title.includes("Último Distrito")) document.title = document.title.replace("Último Distrito", "SOUTHLAND");
+
 const escapeHTML = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
 const getPost = (id) => demoPosts.find((post) => post.id === id);
 const emptyState = `<div class="district-empty"><p>Este espacio espera por tu obra.</p><a class="district-link" href="publish.html">Compartir una obra →</a></div>`;
