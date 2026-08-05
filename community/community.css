@@ -20,6 +20,8 @@ button,input,textarea,select { font:inherit; }
 .district-utility a { color:inherit; text-decoration:none; }
 .district-utility a:hover { color:var(--district-ink); }
 .district-hero { position:relative; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr); gap:clamp(30px,7vw,120px); margin:0 calc(50% - 50vw); padding:clamp(78px,12vw,180px) max(32px,calc((100vw - 1440px)/2)) 92px; border-block:1px solid var(--district-line); background:#fff; color:var(--district-ink); }
+.district-hero--intro { grid-template-columns:1fr; padding-block:clamp(70px,10vw,130px); }
+.district-hero--intro > div { max-width:42ch; }
 .district-hero > * { position:relative; z-index:1; }
 .district-kicker { margin:0 0 18px; color:var(--district-taupe); font-size:.66rem; font-weight:700; letter-spacing:.17em; text-transform:uppercase; }
 .district-hero h1,.district-page-title { max-width:10ch; margin:0; font-family:Impact,"Arial Black",sans-serif; font-size:clamp(3.5rem,7vw,8rem); font-weight:400; letter-spacing:.01em; line-height:.78; text-transform:uppercase; }
@@ -27,6 +29,7 @@ button,input,textarea,select { font:inherit; }
 .district-wordmark img { width:100%; height:100%; object-fit:contain; object-position:left center; filter:sepia(.16) contrast(1.06); }
 .district-hero h1.district-wordmark--southland { display:flex; align-items:center; width:100%; overflow:visible; color:var(--district-ink); font-size:clamp(3.2rem,7vw,7.4rem); letter-spacing:-.045em; }
 .district-hero p:not(.district-kicker) { align-self:end; max-width:35ch; margin:0; color:var(--district-taupe); font-size:clamp(1.05rem,1.8vw,1.4rem); line-height:1.38; }
+.district-hero--intro p:not(.district-kicker) { max-width:none; }
 .district-section-head { display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin:54px 0 24px; padding-bottom:12px; border-bottom:1px solid var(--district-line); }
 .district-section-head h2 { margin:0; font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
 .district-section-head p { margin:0; color:var(--district-muted); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; }
