@@ -7,7 +7,7 @@ body { margin: 0; background: var(--lobby-dark); color: var(--lobby-ink); font-f
 .lobby-panel { position: relative; display: flex; align-items: flex-end; min-width: 0; min-height: 100svh; overflow: hidden; color: inherit; text-decoration: none; isolation: isolate; transition: filter .7s var(--lobby-ease); }
 .lobby-panel::before { position: absolute; z-index: -2; inset: 0; background-position: center; background-size: cover; content: ""; transition: transform 1s var(--lobby-ease); }
 .lobby-panel--xavier::before { background-image: url("images/archive-header.jpg"); background-position: left 58%; filter: grayscale(1) contrast(1.1); }
-.lobby-panel--community::before { background: #000; }
+.lobby-panel--community::before { background: linear-gradient(128deg, #0b0a09, #211d19 55%, #161310); }
 .lobby-panel__veil { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.79)); transition: background .5s var(--lobby-ease); }
 .lobby-panel + .lobby-panel { border-left: 1px solid var(--lobby-line); }
 .lobby-panel__content { width: min(100%, 620px); padding: clamp(30px, 5vw, 84px); transform: translateY(0); transition: transform .55s var(--lobby-ease); }
