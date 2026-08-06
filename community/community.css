@@ -9,7 +9,8 @@ button,input,textarea,select { font:inherit; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 .district-shell { width:min(calc(100% - 52px),1440px); margin:0 auto; }
 .district-header { display:flex; align-items:center; justify-content:space-between; gap:22px; min-height:96px; border-bottom:1px solid var(--ink); }
-.district-brand { font-family:Impact,"Arial Black",sans-serif; font-size:clamp(1.35rem,2.3vw,2rem); font-weight:400; letter-spacing:-.035em; line-height:.8; text-decoration:none; text-transform:uppercase; }
+.district-brand { display:block; width:clamp(112px,11vw,164px); text-decoration:none; }
+.district-brand img { width:100%; height:auto; }
 .district-nav { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:0; }
 .district-nav a,.district-link { color:var(--ink); font-size:.67rem; font-weight:700; letter-spacing:.075em; text-decoration:none; text-transform:uppercase; }
 .district-nav a { border-left:1px solid var(--line); padding:6px 11px; transition:background .2s var(--ease),color .2s var(--ease); }

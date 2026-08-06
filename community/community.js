@@ -1,6 +1,6 @@
 import { demoPosts, communityComments } from "./data.js";
 
-document.querySelectorAll(".district-brand").forEach((brand) => { brand.textContent = "SOUTHLAND"; });
+document.querySelectorAll(".district-brand").forEach((brand) => { brand.setAttribute("aria-label", "SOUTHLAND"); });
 document.querySelectorAll(".district-footer p").forEach((footer) => { footer.textContent = "SOUTHLAND · Comunidad en construcción"; });
 document.querySelectorAll(".district-nav").forEach((nav) => { nav.setAttribute("aria-label", "Navegación de SOUTHLAND"); });
 if (document.title.includes("Último Distrito")) document.title = document.title.replace("Último Distrito", "SOUTHLAND");
