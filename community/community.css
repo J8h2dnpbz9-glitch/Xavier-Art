@@ -132,7 +132,7 @@ body { background:var(--sand-light); font-family:Arial,Helvetica,sans-serif; }
 .dossier-hero__landscape { position:absolute; z-index:-2; inset:0; background:linear-gradient(180deg,rgba(14,11,8,.03) 18%,rgba(14,11,8,.58) 100%),url("/images/southland-background.jpg") center 48%/cover no-repeat; filter:contrast(1.06) saturate(.72); }
 .dossier-hero::after { position:absolute; z-index:-1; inset:0; background:linear-gradient(90deg,rgba(15,12,9,.36),transparent 42%,rgba(15,12,9,.22)); content:""; pointer-events:none; }
 .dossier-hero__topline { display:flex; align-items:start; justify-content:space-between; gap:28px; padding:clamp(24px,3vw,50px) clamp(24px,5vw,80px); font-size:.61rem; font-weight:700; letter-spacing:.16em; line-height:1.55; text-transform:uppercase; }
-.dossier-hero__topline p { margin:0; }.dossier-hero__topline p:last-child { text-align:right; }.dossier-hero__topline span { color:rgba(244,236,217,.78); }
+.dossier-hero__topline p { margin:0; }.dossier-hero__topline p:last-child:not(:only-child) { text-align:right; }.dossier-hero__topline span { color:rgba(244,236,217,.78); }
 .dossier-hero__verbs { position:absolute; top:clamp(108px,15vw,182px); left:clamp(24px,5vw,80px); display:grid; gap:5px; font-size:.59rem; font-weight:700; letter-spacing:.19em; line-height:1.25; text-transform:uppercase; }
 .dossier-hero__brand { position:absolute; top:clamp(112px,15vw,188px); left:50%; width:min(38vw,430px); transform:translateX(-50%); text-align:center; }
 .dossier-hero__brand img { width:100%; filter:sepia(.55) saturate(.75) brightness(.36); }.dossier-hero__brand p { margin:14px 0 0; color:rgba(244,236,217,.78); font-size:.61rem; font-weight:700; letter-spacing:.16em; line-height:1.55; text-transform:uppercase; }
