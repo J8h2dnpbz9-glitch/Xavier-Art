@@ -8,8 +8,8 @@ body { margin: 0; background: var(--lobby-dark); color: var(--lobby-ink); font-f
 .lobby-panel::before { position: absolute; z-index: -2; inset: 0; background-position: center; background-size: cover; content: ""; transition: transform 1s var(--lobby-ease); }
 .lobby-panel--xavier::before { background-image: url("images/archive-header.jpg"); background-position: left 58%; filter: grayscale(1) contrast(1.1); }
 .lobby-panel--community::before { background-image:url("images/southland-background.jpg"); background-position:center 48%; }
-.lobby-panel--community { color: #3b2419; }
-.lobby-panel--community .lobby-panel__veil { background: transparent; }
+.lobby-panel--community { color:#f4ecd9; }
+.lobby-panel--community .lobby-panel__veil { background:linear-gradient(0deg,rgba(8,7,6,.94) 0%,rgba(8,7,6,.66) 42%,rgba(8,7,6,0) 100%); }
 .lobby-panel__veil { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.79)); transition: background .5s var(--lobby-ease); }
 .lobby-panel + .lobby-panel { border-left: 1px solid var(--lobby-line); }
 .lobby-panel__content { position:relative; z-index:1; width:min(100%,620px); padding:clamp(30px,5vw,84px); transform:translateY(0); transition:transform .55s var(--lobby-ease); }
@@ -28,7 +28,7 @@ body { margin: 0; background: var(--lobby-dark); color: var(--lobby-ink); font-f
   .lobby:hover .lobby-panel:hover { filter: brightness(1); }
   .lobby-panel:hover::before { transform: scale(1.04); }
   .lobby-panel:hover .lobby-panel__veil { background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.7)); }
-  .lobby-panel--community:hover .lobby-panel__veil { background: transparent; }
+  .lobby-panel--community:hover .lobby-panel__veil { background:linear-gradient(0deg,rgba(8,7,6,.9) 0%,rgba(8,7,6,.58) 42%,rgba(8,7,6,0) 100%); }
   .lobby-panel:hover .lobby-panel__content { transform: translateY(-8px); }
 }
 @media (max-width:700px) { .lobby { display:block; } .lobby-panel { min-height:50svh; min-height:50dvh; } .lobby-panel + .lobby-panel { border-top:1px solid var(--lobby-line); border-left:0; } .lobby-panel__content { width:100%; padding:clamp(20px,6vw,28px) 24px; } .lobby-panel h1 { min-height:clamp(84px,25vw,108px); font-size:clamp(2.7rem,13vw,4.5rem); } .lobby-panel h1.lobby-wordmark { width:min(100%,360px); height:clamp(84px,25vw,108px); } .lobby-panel h1.lobby-wordmark--southland { width:min(100%,218.992188px); height:auto; min-height:0; transform:translate(-4px,20px); } .lobby-panel--xavier h1 { transform:translateY(calc(clamp(24px,4.2vw,60px) + 23px)); } .lobby-panel p { margin:15px 0 0; } }
