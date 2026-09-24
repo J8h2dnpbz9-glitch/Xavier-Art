@@ -23,6 +23,11 @@ body { margin: 0; background: var(--lobby-dark); color: var(--lobby-ink); font-f
 .lobby-panel--community p.lobby-panel__subtitle { margin:8px 0 0; font-size:.7rem; font-weight:700; letter-spacing:.16em; line-height:1; text-transform:uppercase; }
 .lobby-panel--community p.lobby-panel__subtitle + p { margin-top:12px; }
 .lobby-panel p:not(.lobby-panel__eyebrow) { max-width:28ch; margin:24px 0 0; font-size:clamp(.95rem,1.3vw,1.15rem); line-height:1.45; }
+
+/* Temporal: retirar estas dos reglas para restaurar Southland exactamente como estaba. */
+.lobby-panel--community { display: none; }
+.lobby { grid-template-columns: minmax(0, 1fr); }
+
 @media (hover: hover) {
   .lobby:hover .lobby-panel { filter: brightness(.72); }
   .lobby:hover .lobby-panel:hover { filter: brightness(1); }
