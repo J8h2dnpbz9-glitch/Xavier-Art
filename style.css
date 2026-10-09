@@ -162,6 +162,7 @@ html[lang="en"] .sold::after { content: "Sold"; }
 .studio-notebook__intro { max-width: 58ch; margin: 27px 0 0; color: #4d4b45; font-size: .89rem; line-height: 1.7; }
 .studio-notebook__entries { margin-top: 0; margin-bottom: 0; padding: 0; list-style: none; }
 .studio-notebook__entries:empty { min-height: 46vh; }
+.studio-notebook__empty { min-height: 46vh; padding-top: 42px; color: #5e5a51; font-size: .78rem; line-height: 1.7; }
 .studio-notebook__entries > li { margin: 0; }
 .journal-note { padding: 40px 0 44px; border-bottom: 1px solid rgba(17,17,17,.36); }
 .journal-note__header { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #5e5a51; }

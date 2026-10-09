@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: J8h2dnpbz9-glitch/Xavier-Art
+  branch: main
+  base_url: https://xavier-notes-auth.j8h2dnpbz9.workers.dev
+  auth_endpoint: auth
+
+publish_mode: simple
+media_folder: images/studio-notes
+public_folder: /images/studio-notes
+
+collections:
+  - name: studio_notes
+    label: Cuaderno de estudio
+    files:
+      - label: Notas
+        name: notas
+        file: content/studio-notes.json
+        fields:
+          - label: Entradas
+            name: entries
+            widget: list
+            summary: "{{fields.date}} — {{fields.title}}"
+            fields:
+              - { label: Fecha, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: Título, name: title, widget: string, required: false }
+              - { label: Texto, name: body, widget: text }
