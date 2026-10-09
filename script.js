@@ -236,7 +236,7 @@ document.querySelectorAll("nav").forEach((nav) => {
 
 /* Keep legacy home links pointing directly to Xavier Art. */
 document.querySelectorAll('a[href="index.html"]').forEach((link) => {
-  link.href = "/xavier/";
+  link.href = "/";
 });
 
 document.querySelectorAll("main img").forEach((image, index) => {
