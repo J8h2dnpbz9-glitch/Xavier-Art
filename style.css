@@ -150,6 +150,27 @@ html[lang="en"] .sold::after { content: "Sold"; }
 .archive-back { display: inline-block; margin-top: 40px; font-size: .75rem; text-decoration: none; }
 .legal-page h3 { margin: 42px 0 10px; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
 
+.studio-notes-page { background: #e8e5dc; }
+.studio-notes-page .container { width: min(calc(100% - 48px), 1120px); }
+.studio-notebook { position: relative; margin: 66px auto 0; border: 1px solid #cbc7bb; background-color: #fffef8; background-image: linear-gradient(to bottom, transparent 31px, rgba(115, 137, 154, .18) 32px); background-size: 100% 32px; box-shadow: 8px 10px 0 rgba(17,17,17,.08); padding: clamp(42px, 7vw, 84px) clamp(32px, 8vw, 118px) 64px; font-family: "IBM Plex Mono", "Courier New", monospace; }
+.studio-notebook::before { position: absolute; top: 0; bottom: 0; left: clamp(20px, 5vw, 72px); width: 1px; background: rgba(187, 91, 82, .55); content: ""; }
+.studio-notebook__header, .studio-notebook__entries, .studio-notebook > .archive-back { position: relative; z-index: 1; margin-left: clamp(18px, 3.3vw, 48px); }
+.studio-notebook__header { padding-bottom: 31px; border-bottom: 1px solid rgba(17,17,17,.5); }
+.studio-notebook__label, .journal-note__header, .journal-note__time, .journal-note__signature { font-size: .68rem; letter-spacing: .08em; line-height: 1.45; text-transform: uppercase; }
+.studio-notebook__label { margin: 0 0 22px; color: #ad5149; }
+.studio-notebook h2 { margin: 0; font-family: inherit; font-size: clamp(2.2rem, 5.2vw, 5.1rem); font-weight: 400; letter-spacing: -.07em; line-height: .88; }
+.studio-notebook__intro { max-width: 58ch; margin: 27px 0 0; color: #4d4b45; font-size: .89rem; line-height: 1.7; }
+.studio-notebook__entries { margin-top: 0; margin-bottom: 0; padding: 0; list-style: none; }
+.studio-notebook__entries > li { margin: 0; }
+.journal-note { padding: 40px 0 44px; border-bottom: 1px solid rgba(17,17,17,.36); }
+.journal-note__header { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #5e5a51; }
+.journal-note__body { max-width: 67ch; margin-top: 29px; font-size: .95rem; line-height: 1.72; }
+.journal-note__body p { margin: 0 0 25px; }
+.journal-note__time { color: #ad5149; }
+.journal-note__body img { width: min(100%, 620px); margin: 42px 0 36px; border: 1px solid rgba(17,17,17,.22); filter: grayscale(1) contrast(1.04); }
+.journal-note__signature { margin: 34px 0 0; color: #5e5a51; }
+.studio-notebook .archive-back { margin-top: 38px; font-family: inherit; font-size: .7rem; letter-spacing: .04em; }
+
 footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 140px; padding: 28px 0 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: .68rem; letter-spacing: .04em; }
 footer p { margin: 0; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
@@ -203,6 +224,10 @@ footer p { margin: 0; }
   .about-image { order: -1; }
   .work-navigation { margin-top: 46px; }
   footer { align-items: flex-start; flex-direction: column; margin-top: 95px; }
+  .studio-notes-page .container { width: min(calc(100% - 30px), 1120px); }
+  .studio-notebook { margin-top: 38px; padding: 36px 30px 50px; }
+  .studio-notebook::before { left: 16px; }
+  .studio-notebook__header, .studio-notebook__entries, .studio-notebook > .archive-back { margin-left: 18px; }
 }
 
 @media (max-width: 480px) {
