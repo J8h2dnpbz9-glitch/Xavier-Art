@@ -234,7 +234,7 @@ document.querySelectorAll("nav").forEach((nav) => {
   nav.append(languageLink);
 });
 
-/* The public entry is now the lobby. Existing personal pages continue to point home to Xavier Art. */
+/* Keep legacy home links pointing directly to Xavier Art. */
 document.querySelectorAll('a[href="index.html"]').forEach((link) => {
   link.href = "/xavier/";
 });
