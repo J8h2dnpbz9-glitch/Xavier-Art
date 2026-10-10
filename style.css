@@ -220,7 +220,9 @@ footer p { margin: 0; }
   .home-classic .intro { margin-bottom: 70px; }
   .editorial-grid, .newsletter, .about-page, .work-page { grid-template-columns: 1fr; }
   .editorial-grid { gap: 28px; padding: 105px 0; }
-  .gallery { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 42px 14px; }
+  .gallery { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px 10px; }
+  .work-card h3 { margin-top: 10px; font-size: .7rem; line-height: 1.25; }
+  .work-card p { font-size: .65rem; line-height: 1.35; }
   .newsletter { gap: 28px; margin-top: 150px; }
   .about-image { order: -1; }
   .work-navigation { margin-top: 46px; }
@@ -236,7 +238,9 @@ footer p { margin: 0; }
   header { gap: 18px; }
   nav { justify-content: flex-start; padding-top: 0; }
   .logo { font-size: 1.8rem; }
-  .gallery { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px 7px; }
+  .work-card h3 { margin-top: 8px; font-size: .62rem; }
+  .work-card p { font-size: .58rem; }
   .newsletter { margin-top: 115px; }
   .search-result { align-items: flex-start; flex-direction: column; gap: 4px; }
   .search-result span { text-align: left; }
