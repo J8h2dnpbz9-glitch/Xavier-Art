@@ -221,7 +221,7 @@ footer p { margin: 0; }
   .home-classic .intro { margin-bottom: 70px; }
   .editorial-grid, .newsletter, .about-page, .work-page { grid-template-columns: 1fr; }
   .editorial-grid { gap: 28px; padding: 105px 0; }
-  .home-gallery-title { margin-top: 88px; margin-bottom: 25px; }
+  .home-gallery-title { margin-top: 88px; margin-bottom: 25px; font-size: 1.15rem; }
   .gallery { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px 10px; }
   .work-card h3 { margin-top: 10px; font-size: .7rem; line-height: 1.25; }
   .work-card p { font-size: .65rem; line-height: 1.35; }
