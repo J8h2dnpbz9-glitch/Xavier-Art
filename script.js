@@ -128,7 +128,7 @@ const setupSiteMusic = () => {
 
   const startMusic = () => {
     command("unMute");
-    command("setVolume", [50]);
+    command("setVolume", [20]);
     command("playVideo");
   };
   player.addEventListener("load", startMusic, { once: true });
