@@ -126,10 +126,13 @@ const setupSiteMusic = () => {
   let playing = true;
   const command = (action, args = []) => player.contentWindow?.postMessage(JSON.stringify({ event: "command", func: action, args }), "https://www.youtube-nocookie.com");
 
+  const setMusicVolume = () => command("setVolume", [20]);
   const startMusic = () => {
     command("unMute");
-    command("setVolume", [20]);
     command("playVideo");
+    // YouTube termina de preparar su API después de que el iframe carga.
+    // Repetimos el ajuste brevemente para que se aplique en móvil y escritorio.
+    [0, 400, 1400].forEach((delay) => window.setTimeout(setMusicVolume, delay));
   };
   player.addEventListener("load", startMusic, { once: true });
   document.addEventListener("pointerdown", startMusic, { once: true, passive: true, capture: true });
