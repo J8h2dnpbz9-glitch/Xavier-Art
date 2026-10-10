@@ -4,7 +4,6 @@ const searchButton = document.getElementById("search-toggle");
 const searchOverlay = document.getElementById("search-overlay");
 const searchInput = document.getElementById("search-input");
 const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
-const siteMusicVideoId = "qUGE8Y07-2k";
 const analyticsMeasurementId = "G-ERX6DQQ7FF";
 const analyticsConsentKey = "xavierAnalyticsConsent";
 let analyticsLoaded = false;
@@ -108,42 +107,6 @@ const setupAnalyticsConsent = () => {
   } else {
     createConsentBanner();
   }
-};
-
-const setupSiteMusic = () => {
-  if (document.getElementById("site-music")) return;
-
-  const music = document.createElement("section");
-  music.id = "site-music";
-  music.className = "site-music";
-  music.setAttribute("aria-label", isEnglish ? "Background music" : "Música de fondo");
-  const playerOrigin = window.location.origin;
-  music.innerHTML = `<iframe class="site-music__embed" title="${isEnglish ? "Background music player" : "Reproductor de música de fondo"}" src="https://www.youtube-nocookie.com/embed/${siteMusicVideoId}?autoplay=1&loop=1&playlist=${siteMusicVideoId}&controls=0&disablekb=1&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(playerOrigin)}" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin"></iframe><button type="button" class="site-music__toggle" aria-pressed="true">${isEnglish ? "Pause music" : "Pausar música"}</button>`;
-  document.body.append(music);
-
-  const player = music.querySelector("iframe");
-  const toggle = music.querySelector(".site-music__toggle");
-  let playing = true;
-  const command = (action, args = []) => player.contentWindow?.postMessage(JSON.stringify({ event: "command", func: action, args }), "https://www.youtube-nocookie.com");
-
-  const setMusicVolume = () => command("setVolume", [20]);
-  const startMusic = () => {
-    command("unMute");
-    command("playVideo");
-    // YouTube termina de preparar su API después de que el iframe carga.
-    // Repetimos el ajuste brevemente para que se aplique en móvil y escritorio.
-    [0, 400, 1400].forEach((delay) => window.setTimeout(setMusicVolume, delay));
-  };
-  player.addEventListener("load", startMusic, { once: true });
-  document.addEventListener("pointerdown", startMusic, { once: true, passive: true, capture: true });
-  document.addEventListener("keydown", startMusic, { once: true });
-
-  toggle.addEventListener("click", () => {
-    playing = !playing;
-    command(playing ? "playVideo" : "pauseVideo");
-    toggle.setAttribute("aria-pressed", String(playing));
-    toggle.textContent = playing ? (isEnglish ? "Pause music" : "Pausar música") : (isEnglish ? "Play music" : "Reproducir música");
-  });
 };
 
 const searchIndex = isEnglish ? [
@@ -297,4 +260,3 @@ document.querySelectorAll(".work-carousel").forEach((carousel) => {
 });
 
 setupAnalyticsConsent();
-setupSiteMusic();
