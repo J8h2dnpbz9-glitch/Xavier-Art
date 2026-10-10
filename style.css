@@ -72,7 +72,6 @@ main { padding: 56px 0 0; }
 .home-classic .intro-text p + p { margin-top: 16px; }
 .home-classic .intro-link { font-size: .75rem; }
 .home-classic .gallery img { aspect-ratio: 1 / 1; }
-.home-gallery-title { margin: clamp(92px, 13vw, 178px) 0 34px; font-size: clamp(1.45rem, 2.3vw, 2.2rem); font-weight: 400; letter-spacing: -.05em; line-height: .91; }
 .home-classic .newsletter { margin-top: 140px; }
 .intro { max-width: 760px; margin: 0 auto 90px; }
 .intro-text h2 { margin-bottom: 28px; font-size: clamp(2.6rem, 5vw, 5.4rem); }
@@ -221,7 +220,6 @@ footer p { margin: 0; }
   .home-classic .intro { margin-bottom: 70px; }
   .editorial-grid, .newsletter, .about-page, .work-page { grid-template-columns: 1fr; }
   .editorial-grid { gap: 28px; padding: 105px 0; }
-  .home-gallery-title { margin-top: 88px; margin-bottom: 25px; font-size: 1.15rem; }
   .gallery { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px 10px; }
   .work-card h3 { margin-top: 10px; font-size: .7rem; line-height: 1.25; }
   .work-card p { font-size: .65rem; line-height: 1.35; }
