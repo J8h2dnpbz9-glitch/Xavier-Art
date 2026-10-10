@@ -223,6 +223,7 @@ footer p { margin: 0; }
   .gallery { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px 10px; }
   .work-card h3 { margin-top: 10px; font-size: .7rem; line-height: 1.25; }
   .work-card p { font-size: .65rem; line-height: 1.35; }
+  .sold::after { top: 7px; left: 7px; padding: 4px 5px; font-size: .45rem; letter-spacing: .06em; }
   .newsletter { gap: 28px; margin-top: 150px; }
   .about-image { order: -1; }
   .work-navigation { margin-top: 46px; }
