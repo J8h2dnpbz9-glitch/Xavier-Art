@@ -124,10 +124,11 @@ const setupSiteMusic = () => {
   const player = music.querySelector("iframe");
   const toggle = music.querySelector(".site-music__toggle");
   let playing = true;
-  const command = (action) => player.contentWindow?.postMessage(JSON.stringify({ event: "command", func: action, args: [] }), "https://www.youtube-nocookie.com");
+  const command = (action, args = []) => player.contentWindow?.postMessage(JSON.stringify({ event: "command", func: action, args }), "https://www.youtube-nocookie.com");
 
   const startMusic = () => {
     command("unMute");
+    command("setVolume", [50]);
     command("playVideo");
   };
   player.addEventListener("load", startMusic, { once: true });
