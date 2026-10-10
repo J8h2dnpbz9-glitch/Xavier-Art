@@ -87,7 +87,7 @@ main { padding: 56px 0 0; }
 .coming-soon { opacity: .8; }
 .coming-soon::after { position: absolute; top: 12px; left: 12px; padding: 6px 8px; background: var(--paper); color: var(--ink); content: "Próximamente"; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; }
 html[lang="en"] .coming-soon::after { content: "Coming soon"; }
-.sold::after { position: absolute; top: 12px; left: 12px; padding: 6px 8px; background: var(--ink); color: var(--paper); content: "Vendida"; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; }
+.sold::after { position: absolute; top: 12px; right: 0; left: 12px; padding: 6px 8px; background: var(--ink); color: var(--paper); content: "Vendida"; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; }
 html[lang="en"] .sold::after { content: "Sold"; }
 
 .newsletter { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 72px; margin: clamp(150px, 18vw, 280px) 0 0; padding: clamp(34px, 5vw, 68px) 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
