@@ -164,8 +164,6 @@ html[lang="en"] .sold::after { content: "Sold"; }
 .studio-notebook::before { position: absolute; top: 0; bottom: 0; left: clamp(20px, 5vw, 72px); width: 1px; background: rgba(187, 91, 82, .55); content: ""; }
 .studio-notebook__header, .studio-notebook__entries, .studio-notebook > .archive-back { position: relative; z-index: 1; margin-left: clamp(18px, 3.3vw, 48px); }
 .studio-notebook__header { padding-bottom: 31px; border-bottom: 1px solid rgba(17,17,17,.5); }
-.studio-notebook__cover { position: relative; z-index: 1; width: min(100%, 520px); margin: 42px auto 0; }
-.studio-notebook__cover img { width: 100%; border: 1px solid rgba(17,17,17,.22); box-shadow: 5px 7px 0 rgba(17,17,17,.07); }
 .studio-notebook__label, .journal-note__header, .journal-note__time, .journal-note__signature { font-size: .68rem; letter-spacing: .08em; line-height: 1.45; text-transform: uppercase; }
 .studio-notebook__label { margin: 0 0 22px; color: #ad5149; }
 .studio-notebook h2 { margin: 0; font-family: inherit; font-size: clamp(2.2rem, 5.2vw, 5.1rem); font-weight: 400; letter-spacing: -.07em; line-height: .88; }
