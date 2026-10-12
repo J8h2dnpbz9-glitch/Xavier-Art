@@ -119,6 +119,8 @@ html[lang="en"] .sold::after { content: "Sold"; }
 .work-card--aguila img { object-position: left center; }
 .home-classic .work-card--tenebrismo img { transform: scale(1.1); }
 .home-classic .work-card--tenebrismo:hover img { transform: scale(1.125); }
+.home-classic .work-card--dear-marshall img { transform: scale(1.18); }
+.home-classic .work-card--dear-marshall:hover img { transform: scale(1.205); }
 .work-carousel__viewport { width: 100%; max-width: 100%; overflow: hidden; }
 .work-carousel__track { display: flex; width: 100%; transition: transform .45s var(--ease); }
 .work-carousel__track img { flex: 0 0 100%; width: 100%; max-width: 100%; height: auto; }
