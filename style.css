@@ -108,6 +108,7 @@ html[lang="en"] .sold::after { content: "Sold"; }
 .work-image img { aspect-ratio: 4 / 5; object-fit: contain; }
 .work-image--tupac img { aspect-ratio: 1440 / 1389; object-fit: cover; }
 .work-image--dear-marshall img { aspect-ratio: 1440 / 876; object-fit: cover; }
+.work-image--aguila img { aspect-ratio: 1440 / 1051; object-fit: cover; }
 .work-image--untitled-ii { display: grid; gap: 16px; }
 .work-image--untitled-ii img { aspect-ratio: auto; object-fit: cover; }
 .work-image--untitled-iii { padding: clamp(14px, 2vw, 28px); background: #080808; }
