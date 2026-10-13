@@ -108,6 +108,7 @@ html[lang="en"] .sold::after { content: "Sold"; }
 .work-image--dear-marshall img { aspect-ratio: 1440 / 876; object-fit: cover; }
 .work-image--aguila img { aspect-ratio: 1440 / 1051; object-fit: cover; }
 .work-image--tenebrismo img { aspect-ratio: 1 / 1; object-fit: cover; }
+.work-image--guardianes-del-alba img { aspect-ratio: 1559 / 1009; object-fit: cover; }
 .work-image--untitled-ii { display: grid; gap: 16px; }
 .work-image--untitled-ii img { aspect-ratio: auto; object-fit: cover; }
 .work-image--untitled-iii { padding: clamp(14px, 2vw, 28px); background: #080808; }
@@ -116,6 +117,7 @@ html[lang="en"] .sold::after { content: "Sold"; }
 .work-card--untitled-iii img { object-fit: cover; transform: scale(1.14); }
 .work-card--untitled-iii:hover img { transform: scale(1.17); }
 .work-card--aguila img { object-position: left center; }
+.work-card--guardianes-del-alba img { object-fit: contain; }
 .home-classic .work-card--tenebrismo img { transform: scale(1.1); }
 .home-classic .work-card--tenebrismo:hover img { transform: scale(1.125); }
 .home-classic .work-card--dear-marshall img { transform: scale(1.18); }
