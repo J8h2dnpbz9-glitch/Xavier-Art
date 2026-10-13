@@ -85,8 +85,6 @@ main { padding: 56px 0 0; }
 .work-card h3 { margin: 16px 0 4px; font-size: .85rem; font-weight: 500; letter-spacing: .025em; }
 .work-card p { margin: 0; color: var(--muted); font-size: .78rem; }
 .coming-soon { opacity: .8; }
-.coming-soon::after { position: absolute; top: 12px; left: 12px; padding: 6px 8px; background: var(--paper); color: var(--ink); content: "Próximamente"; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; }
-html[lang="en"] .coming-soon::after { content: "Coming soon"; }
 .sold::after { position: absolute; top: 12px; right: 0; left: 12px; padding: 6px 8px; background: var(--ink); color: var(--paper); content: "Vendida"; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; }
 html[lang="en"] .sold::after { content: "Sold"; }
 
