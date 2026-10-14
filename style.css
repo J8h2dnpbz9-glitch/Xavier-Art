@@ -73,6 +73,14 @@ main { padding: 56px 0 0; }
 .home-classic .intro-link { font-size: .75rem; }
 .home-classic .gallery img { aspect-ratio: 1 / 1; }
 .home-classic .newsletter { margin-top: 140px; }
+.home-journal { display: grid; grid-template-columns: minmax(150px, .6fr) minmax(0, 1.4fr); gap: clamp(30px, 7vw, 110px); margin: 0 0 clamp(74px, 9vw, 132px); padding: 24px 0 26px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+.home-journal__meta > p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: .68rem; letter-spacing: .08em; }
+.home-journal .eyebrow { margin-bottom: 7px; }
+.home-journal__entry h2 { margin: 0 0 8px; font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 400; letter-spacing: -.045em; line-height: 1; }
+.home-journal__entry p { max-width: 62ch; margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+.home-journal__entry a { display: inline-block; margin-top: 16px; font-size: .68rem; font-weight: 500; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
+.home-journal__entry a span { display: inline-block; margin-left: 5px; transition: transform .25s var(--ease); }
+.home-journal__entry a:hover span { transform: translateX(4px); }
 .intro { max-width: 760px; margin: 0 auto 90px; }
 .intro-text h2 { margin-bottom: 28px; font-size: clamp(2.6rem, 5vw, 5.4rem); }
 .intro-text p { max-width: 60ch; color: var(--muted); }
@@ -221,6 +229,8 @@ footer p { margin: 0; }
   .home-classic .archive-header, .en-home .archive-header { width: 100vw; max-width: none; height: min(120px, 24vw); margin-bottom: 48px; margin-left: calc(50% - 50vw); }
   .home-classic .archive-header img, .en-home .archive-header img { width: 100%; height: 100%; object-fit: cover; object-position: center calc(78% + 12px); }
   .home-classic .intro { margin-bottom: 70px; }
+  .home-journal { grid-template-columns: 1fr; gap: 18px; margin-bottom: 72px; padding: 20px 0 22px; }
+  .home-journal__entry p { max-width: 58ch; font-size: .86rem; }
   .home-classic .work-card--guardianes-del-alba img, .en-home .work-card--guardianes-del-alba img { object-fit: cover; object-position: 78% center; transform: none; }
   .editorial-grid, .newsletter, .about-page, .work-page { grid-template-columns: 1fr; }
   .editorial-grid { gap: 28px; padding: 105px 0; }
