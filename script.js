@@ -194,6 +194,16 @@ if (searchButton && searchOverlay && searchInput) {
 }
 
 document.querySelectorAll("[data-work-gallery]").forEach((gallery) => {
+  const filterSection = gallery.previousElementSibling;
+  const controls = filterSection?.querySelector(".work-filter__controls");
+  if (window.matchMedia("(max-width: 850px)").matches && controls && !controls.parentElement.matches("details")) {
+    const compactFilter = document.createElement("details");
+    compactFilter.className = "work-filter__compact";
+    const summary = document.createElement("summary");
+    summary.textContent = isEnglish ? "Filter and sort" : "Filtrar y ordenar";
+    controls.before(compactFilter);
+    compactFilter.append(summary, controls);
+  }
   const cards = Array.from(gallery.querySelectorAll(".work-card"));
   const filterButtons = Array.from(document.querySelectorAll("[data-work-filter]"));
   const priceSelect = document.querySelector("[data-work-price]");

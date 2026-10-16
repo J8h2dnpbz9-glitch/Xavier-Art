@@ -77,6 +77,8 @@ main { padding: 56px 0 0; }
 .work-filter h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 400; letter-spacing: -.06em; line-height: .95; }
 .work-filter .eyebrow { margin-bottom: 7px; }
 .work-filter__controls { display: grid; gap: 22px; }
+.work-filter__compact { min-width: 0; }
+.work-filter__compact summary { display: none; }
 .work-filter__categories { display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .work-filter button { border: 0; border-bottom: 1px solid transparent; background: transparent; padding: 0 0 4px; color: var(--muted); cursor: pointer; font-family: inherit; font-size: .7rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; -webkit-tap-highlight-color: transparent; }
 .work-filter button:hover, .work-filter button.is-active { border-color: var(--ink); color: var(--ink); }
@@ -237,6 +239,11 @@ footer p { margin: 0; }
   .home-classic .intro { margin-bottom: 70px; }
   .work-filter { grid-template-columns: 1fr; gap: 23px; margin-bottom: 48px; padding: 19px 0 23px; }
   .work-filter__controls { gap: 24px; }
+  .work-filter__compact summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); color: var(--ink); cursor: pointer; font-size: .67rem; font-weight: 500; letter-spacing: .1em; list-style: none; text-transform: uppercase; -webkit-tap-highlight-color: transparent; }
+  .work-filter__compact summary::-webkit-details-marker { display: none; }
+  .work-filter__compact summary::after { content: "+"; font-size: 1.15rem; font-weight: 400; letter-spacing: 0; }
+  .work-filter__compact[open] summary { margin-bottom: 22px; }
+  .work-filter__compact[open] summary::after { content: "−"; }
   .work-filter__categories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
   .work-filter button { min-height: 42px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 0 12px; color: var(--ink); font-size: .64rem; letter-spacing: .075em; text-align: left; }
   .work-filter button:hover, .work-filter button.is-active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
