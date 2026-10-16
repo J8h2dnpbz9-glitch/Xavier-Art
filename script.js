@@ -109,17 +109,39 @@ const setupAnalyticsConsent = () => {
   }
 };
 
-const searchIndex = isEnglish ? [
-  { title: "Work", detail: "Painting, drawing and sculpture", url: "shop.html", terms: "art collection paintings drawing sculpture" },
-  { title: "Archive", detail: "Studio notes and processes", url: "archive.html", terms: "studio process sketchbook" },
-  { title: "About", detail: "Biography and artistic practice", url: "about.html", terms: "artist biography xavier cáceres" },
+const works = [
+  { title: "Rostro de Tupac", englishTitle: "Tupac's Face", detail: "Dibujo · Lápices de colores sobre papel · 1.250 €", englishDetail: "Drawing · Coloured pencils on paper · €1,250", url: "work1.html", category: "dibujo", price: 1250, terms: "tupac rostro face dibujo drawing lapices lápices colores coloured pencils papel paper 1250 1.250 retrato portrait" },
+  { title: "La venus Itálica", englishTitle: "La venus Itálica", detail: "Dibujo · Lápices de colores sobre papel · 1.150 €", englishDetail: "Drawing · Coloured pencils on paper · €1,150", url: "work2.html", category: "dibujo", price: 1150, terms: "venus italica itálica dibujo drawing lapices lápices colores coloured pencils papel paper 1150 1.150 escultura clasica classical sculpture" },
+  { title: "El Alma del Valle", englishTitle: "The Soul of the Valley", detail: "Escultura · Vendida · 145 €", englishDetail: "Sculpture · Sold · €145", url: "work3.html", category: "escultura", price: 145, terms: "alma valle soul valley escultura sculpture 145 vendida sold" },
+  { title: "Dear Marshall", englishTitle: "Dear Marshall", detail: "Dibujo · Lápices de colores sobre papel · 820 €", englishDetail: "Drawing · Coloured pencils on paper · €820", url: "work5.html", category: "dibujo", price: 820, terms: "dear marshall eminem dibujo drawing lapices lápices colores coloured pencils papel paper 820" },
+  { title: "Águila", englishTitle: "Eagle", detail: "Dibujo · Lápices de color sobre papel · 300 €", englishDetail: "Drawing · Coloured pencils on paper · €300", url: "work6.html", category: "dibujo", price: 300, terms: "aguila águila eagle dibujo drawing lapices lápices color coloured pencils papel paper 300" },
+  { title: "Tenebrismo", englishTitle: "Tenebrism", detail: "Dibujo · Lápices de color sobre papel · 160 €", englishDetail: "Drawing · Coloured pencils on paper · €160", url: "work7.html", category: "dibujo", price: 160, terms: "tenebrismo tenebrism dibujo drawing lapices lápices color coloured pencils papel paper 160 carnero ram" },
+  { title: "Guardianes del alba", englishTitle: "Guardians of Dawn", detail: "Dibujo · 110 €", englishDetail: "Drawing · €110", url: "work8.html", category: "dibujo", price: 110, terms: "guardianes alba guardians dawn dibujo drawing 110 camellos camels" }
+];
+
+const pageSearchIndex = isEnglish ? [
+  { title: "Work", detail: "Painting, drawing and sculpture", url: "shop.html", terms: "art collection paintings drawing sculpture sketches prints" },
+  { title: "Archive", detail: "Studio notes and processes", url: "archive.html", terms: "studio process sketchbook diary notes" },
+  { title: "About", detail: "Biography and artistic practice", url: "about.html", terms: "artist biography xavier caceres cáceres" },
   { title: "Contact", detail: "Enquiries, commissions and collaborations", url: "contact.html", terms: "email commission exhibition collaboration" }
 ] : [
-  { title: "Obra en proceso", detail: "Próxima colección", url: "shop.html", terms: "obra pinturas dibujo escultura colección" },
-  { title: "Archivo", detail: "Notas y procesos del estudio", url: "archive.html", terms: "estudio proceso cuaderno" },
-  { title: "Acerca de", detail: "Biografía y práctica artística", url: "about.html", terms: "artista biografía xavier cáceres" },
-  { title: "Contacto", detail: "Consultas, encargos y colaboraciones", url: "contact.html", terms: "correo encargo exposición colaboración" }
+  { title: "Obra", detail: "Pinturas, dibujos y esculturas", url: "shop.html", terms: "arte coleccion pinturas dibujo escultura bocetos prints" },
+  { title: "Archivo", detail: "Notas y procesos del estudio", url: "archive.html", terms: "estudio proceso cuaderno diario notas" },
+  { title: "Acerca de", detail: "Biografía y práctica artística", url: "about.html", terms: "artista biografia biografía xavier caceres cáceres" },
+  { title: "Contacto", detail: "Consultas, encargos y colaboraciones", url: "contact.html", terms: "correo email encargo exposicion exposición colaboracion colaboración" }
 ];
+
+const searchIndex = [
+  ...works.map((work) => ({
+    title: isEnglish ? work.englishTitle : work.title,
+    detail: isEnglish ? work.englishDetail : work.detail,
+    url: work.url,
+    terms: work.terms
+  })),
+  ...pageSearchIndex
+];
+
+const normaliseSearch = (value) => value.toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
 const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 12);
 updateHeader();
@@ -136,12 +158,16 @@ if (searchButton && searchOverlay && searchInput) {
   searchButton.setAttribute("aria-expanded", "false");
 
   const renderResults = () => {
-    const query = searchInput.value.trim().toLocaleLowerCase("es");
+    const query = normaliseSearch(searchInput.value.trim());
     if (!query) {
-      results.innerHTML = `<p class="search-hint">${isEnglish ? "Search by section, discipline or subject." : "Busca por sección, disciplina o tema."}</p>`;
+      results.innerHTML = `<p class="search-hint">${isEnglish ? "Search for a work, technique, category or price. Try: Tenebrism, pencil, sculpture or 300." : "Busca por obra, técnica, categoría o precio. Prueba: Tenebrismo, lápices, escultura o 300."}</p>`;
       return;
     }
-    const matches = searchIndex.filter((item) => `${item.title} ${item.detail} ${item.terms}`.toLocaleLowerCase("es").includes(query));
+    const terms = query.split(/\s+/).filter(Boolean);
+    const matches = searchIndex.filter((item) => {
+      const searchable = normaliseSearch(`${item.title} ${item.detail} ${item.terms}`);
+      return terms.every((term) => searchable.includes(term));
+    });
     results.innerHTML = matches.length
       ? matches.map((item) => `<a href="${item.url}" class="search-result"><strong>${item.title}</strong><span>${item.detail}</span></a>`).join("")
       : `<p class="search-hint">${isEnglish ? "No results found." : "No se han encontrado resultados."}</p>`;
@@ -166,6 +192,70 @@ if (searchButton && searchOverlay && searchInput) {
   searchOverlay.addEventListener("click", (event) => { if (event.target === searchOverlay) closeSearch(); });
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && searchOverlay.classList.contains("active")) closeSearch(); });
 }
+
+document.querySelectorAll("[data-work-gallery]").forEach((gallery) => {
+  const cards = Array.from(gallery.querySelectorAll(".work-card"));
+  const filterButtons = Array.from(document.querySelectorAll("[data-work-filter]"));
+  const priceSelect = document.querySelector("[data-work-price]");
+  const sortSelect = document.querySelector("[data-work-sort]");
+  const emptyMessage = document.querySelector("[data-work-empty]");
+  const metadataByUrl = new Map(works.map((work) => [work.url, work]));
+  let activeCategory = "all";
+
+  cards.forEach((card, index) => {
+    const url = card.querySelector("a[href]")?.getAttribute("href");
+    const work = metadataByUrl.get(url);
+    if (!card.dataset.category) card.dataset.category = work?.category || (card.classList.contains("coming-soon") ? (index % 2 ? "print" : "boceto") : "all");
+    if (!card.dataset.price) card.dataset.price = String(work?.price ?? 0);
+    card.dataset.order = String(index);
+  });
+
+  const matchesPrice = (price, range) => {
+    if (range === "all") return true;
+    if (!price) return false;
+    if (range === "under-200") return price <= 200;
+    if (range === "200-500") return price > 200 && price <= 500;
+    if (range === "500-1000") return price > 500 && price <= 1000;
+    return price > 1000;
+  };
+
+  const applyFilters = () => {
+    const range = priceSelect?.value || "all";
+    const sort = sortSelect?.value || "featured";
+    const sortedCards = [...cards].sort((a, b) => {
+      if (sort === "low") return Number(a.dataset.price) - Number(b.dataset.price);
+      if (sort === "high") return Number(b.dataset.price) - Number(a.dataset.price);
+      return Number(a.dataset.order) - Number(b.dataset.order);
+    });
+    sortedCards.forEach((card) => gallery.append(card));
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
+      const visible = matchesCategory && matchesPrice(Number(card.dataset.price), range);
+      card.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+    if (emptyMessage) {
+      emptyMessage.hidden = visibleCount > 0;
+      emptyMessage.setAttribute("aria-live", "polite");
+    }
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeCategory = button.dataset.workFilter || "all";
+      filterButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-pressed", String(active));
+      });
+      applyFilters();
+    });
+  });
+  priceSelect?.addEventListener("change", applyFilters);
+  sortSelect?.addEventListener("change", applyFilters);
+  applyFilters();
+});
 
 document.querySelectorAll("footer").forEach((footer) => {
   const utilities = footer.querySelector(".footer-links") || document.createElement("div");
