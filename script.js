@@ -116,7 +116,7 @@ const works = [
   { title: "Dear Marshall", englishTitle: "Dear Marshall", detail: "Dibujo · Lápices de colores sobre papel · 820 €", englishDetail: "Drawing · Coloured pencils on paper · €820", url: "work5.html", category: "dibujo", price: 820, terms: "dear marshall eminem dibujo drawing lapices lápices colores coloured pencils papel paper 820" },
   { title: "Águila", englishTitle: "Eagle", detail: "Dibujo · Lápices de color sobre papel · 300 €", englishDetail: "Drawing · Coloured pencils on paper · €300", url: "work6.html", category: "dibujo", price: 300, terms: "aguila águila eagle dibujo drawing lapices lápices color coloured pencils papel paper 300" },
   { title: "Tenebrismo", englishTitle: "Tenebrism", detail: "Dibujo · Lápices de color sobre papel · 160 €", englishDetail: "Drawing · Coloured pencils on paper · €160", url: "work7.html", category: "dibujo", price: 160, terms: "tenebrismo tenebrism dibujo drawing lapices lápices color coloured pencils papel paper 160 carnero ram" },
-  { title: "Guardianes del alba", englishTitle: "Guardians of Dawn", detail: "Dibujo · 110 €", englishDetail: "Drawing · €110", url: "work8.html", category: "dibujo", price: 110, terms: "guardianes alba guardians dawn dibujo drawing 110 camellos camels" }
+  { title: "Guardianes del alba", englishTitle: "Guardians of Dawn", detail: "Boceto · 110 €", englishDetail: "Sketch · €110", url: "work8.html", category: "boceto", price: 110, terms: "guardianes alba guardians dawn boceto sketch 110 camellos camels" }
 ];
 
 const pageSearchIndex = isEnglish ? [
